@@ -19,3 +19,19 @@ def deps do
   ]
 end
 ```
+
+Import the scalar into your Absinthe schema module using the following line:
+
+```elixir
+import_types(AbsintheJsonScalar)
+```
+
+Then, you can use the scalar as `:json` in your schema definitions, e.g.:
+
+```elixir
+object :user_mutation_result do
+  field :success, non_null(:boolean)
+  field :data, :user
+  field :errors, :json
+end
+```

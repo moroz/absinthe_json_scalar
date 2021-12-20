@@ -7,7 +7,9 @@ defmodule AbsintheJsonScalar.MixProject do
       version: "0.1.0",
       elixir: "~> 1.13",
       start_permanent: Mix.env() == :prod,
-      deps: deps()
+      deps: deps(),
+      description: description(),
+      package: package()
     ]
   end
 
@@ -22,7 +24,25 @@ defmodule AbsintheJsonScalar.MixProject do
   defp deps do
     [
       {:absinthe, "~> 1.6"},
-      {:jason, "~> 1.0"}
+      {:jason, "~> 1.0"},
+      {:ex_doc, ">= 0.0.0", only: :dev, runtime: false}
+    ]
+  end
+
+  defp description do
+    """
+    This library provides an easily pluggable JSON scalar type for use with
+    [Absinthe](https://github.com/absinthe-graphql/absinthe), a GraphQL implementation for Elixir.
+    This package wraps the JSON scalar recipe from Absinthe docs.
+    """
+  end
+
+  defp package do
+    [
+      licenses: ["MIT"],
+      links: %{
+        "Github" => "https://github.com/moroz/absinthe_json_scalar"
+      }
     ]
   end
 end
